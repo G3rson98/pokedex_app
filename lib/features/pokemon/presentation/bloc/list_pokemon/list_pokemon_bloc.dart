@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../domain/entities/pokemon_response.entity.dart';
@@ -12,7 +13,7 @@ class ListPokemonBloc extends Bloc<ListPokemonEvent, ListPokemonState> {
   ListPokemonBloc({
     required this.listUseCase,
   }) : super(const ListPokemonInitial()) {
-    on<ListPokemon>(_listPokemon);
+    on<ListPokemon>(_listPokemon,transformer: droppable());
   }
 
   _listPokemon(

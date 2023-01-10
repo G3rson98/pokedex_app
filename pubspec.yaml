@@ -42,6 +42,7 @@ dependencies:
   equatable: ^2.0.5
   dio: ^4.0.6
   flutter_dotenv: ^5.0.2
+  bloc_concurrency: ^0.2.0
 
 dev_dependencies:
   flutter_test:
