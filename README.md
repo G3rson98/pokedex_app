@@ -44,5 +44,5 @@ This project was developed with the following technologie:
   $ Flutter run
 ```
 
-![](docs/1.jpg)
-![](docs/2.jpg)
+![](docs/1.png)
+![](docs/2.png
