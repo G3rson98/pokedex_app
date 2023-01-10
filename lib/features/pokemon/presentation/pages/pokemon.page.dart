@@ -23,7 +23,6 @@ class PokemonPage extends StatefulWidget {
 class _PokemonPageState extends State<PokemonPage>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
-  late final GetOnePokemonBloc _pokemonBloc;
 
   @override
   void initState() {
@@ -31,8 +30,6 @@ class _PokemonPageState extends State<PokemonPage>
       vsync: this,
       duration: const Duration(seconds: 15),
     )..repeat();
-    // _pokemonBloc = PokemonInjection.sl.get<GetOnePokemonBloc>()
-    //   ..add(const GetOnePokemon(name: 'bulbasaur'));
     super.initState();
   }
 
@@ -108,6 +105,7 @@ class _PokemonPageState extends State<PokemonPage>
               ),
               Expanded(
                 child: Container(
+                  width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -115,62 +113,71 @@ class _PokemonPageState extends State<PokemonPage>
                       topRight: Radius.circular(35.0),
                     ),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-                  child: DefaultTabController(
-                    initialIndex: 1,
-                    length: 4,
-                    child: Column(
-                      children: [
-                        TabBar(
-                          indicatorColor: widget.pokemon.color.color,
-                          tabs: <Widget>[
-                            Tab(
-                              child: Text(
-                                'About',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                            Tab(
-                              child: Text(
-                                'Stats',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                            Tab(
-                              child: Text(
-                                'Evolution',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                            Tab(
-                              child: Text(
-                                'Moves',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ),
-                          ],
+                  child: Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 34),
+                        child: Text(
+                          'Stats',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Expanded(
-                          child: TabBarView(
-                            children: <Widget>[
-                              Center(
-                                child: Text("It's cloudy here"),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 80),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: widget.pokemon.stats
+                                    .map((e) => SizedBox(
+                                          child: Text(
+                                            e.name,
+                                            style: Style.s14.w400?.apply(
+                                              color: Colors.grey[700],
+                                            ),
+                                          ),
+                                        ))
+                                    .toList(),
                               ),
-                              Center(
-                                child: Text("It's rainy here"),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: widget.pokemon.stats
+                                    .map((e) => Text('${e.baseStat}'))
+                                    .toList(),
                               ),
-                              Center(
-                                child: Text("It's sunny here"),
-                              ),
-                              Center(
-                                child: Text("It's sunny here"),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: widget.pokemon.stats
+                                    .map(
+                                      (e) => Container(
+                                        height: 14,
+                                        width: 200,
+                                        decoration: BoxDecoration(
+                                          color: widget.pokemon.color.color,
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(35.0)),
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               )

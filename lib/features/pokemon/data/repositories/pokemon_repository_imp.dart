@@ -1,5 +1,6 @@
 import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasoucer.dart';
 import 'package:pokemon_app/features/pokemon/domain/entities/pokemon_response.entity.dart';
+import 'package:pokemon_app/features/pokemon/domain/entities/stats_response.entity.dart';
 import 'package:pokemon_app/features/pokemon/domain/repositories/pokemon_repository.dart';
 import 'package:pokemon_app/shared/utils/enum_color_type.enum.dart';
 
@@ -19,6 +20,15 @@ class PokemonRepositoryImp implements PokemonRepository {
       types: response.types,
       color: ColorTypePokemon.fromJson(response.types.first),
       order: response.order,
+      stats: List.from(
+        response.stats.map(
+          (e) => Stats(
+            name: e.name,
+            baseStat: e.baseStat,
+            effort: e.effort,
+          ),
+        ),
+      ),
     );
   }
 
@@ -37,6 +47,15 @@ class PokemonRepositoryImp implements PokemonRepository {
           types: e.types,
           color: ColorTypePokemon.fromJson(e.types.first),
           order: e.order,
+          stats: List.from(
+            e.stats.map(
+              (e) => Stats(
+                name: e.name,
+                baseStat: e.baseStat,
+                effort: e.effort,
+              ),
+            ),
+          ),
         ),
       ),
     );
