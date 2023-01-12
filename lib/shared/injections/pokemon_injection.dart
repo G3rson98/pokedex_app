@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasoucer.dart';
+import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasource.dart';
 import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasource.imp.dart';
 import 'package:pokemon_app/features/pokemon/data/repositories/pokemon_repository_imp.dart';
 import 'package:pokemon_app/features/pokemon/domain/repositories/pokemon_repository.dart';

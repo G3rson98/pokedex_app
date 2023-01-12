@@ -7,7 +7,7 @@ class PokemonResponse {
     required this.urlImage,
     required this.types,
     required this.color,
-    required this.order,
+    required this.id,
     required this.stats,
   });
 
@@ -15,6 +15,6 @@ class PokemonResponse {
   final String urlImage;
   final List<String> types;
   final ColorTypePokemon color;
-  final int order;
+  final int id;
   final List<Stats> stats;
 }

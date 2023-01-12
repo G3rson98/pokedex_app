@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
           const Padding(
             padding: EdgeInsets.only(left: 16),
             child: Text(
-              'Pokedex',
+              'Dexter la Pokedex',
               style: TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,

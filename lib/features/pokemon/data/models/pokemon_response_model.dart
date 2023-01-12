@@ -5,14 +5,14 @@ class PokemonResponseModel {
     required this.name,
     required this.urlImage,
     required this.types,
-    required this.order,
+    required this.id,
     required this.stats,
   });
 
   final String name;
   final String urlImage;
   final List<String> types;
-  final int order;
+  final int id;
   final List<StatsModel> stats;
 
   factory PokemonResponseModel.fromJson(Map<String, dynamic> json) =>
@@ -22,7 +22,7 @@ class PokemonResponseModel {
         types: List<String>.from(
           json["types"]?.map((x) => x["type"]["name"]) ?? [],
         ),
-        order: json["order"],
+        id: json["id"],
         stats: List<StatsModel>.from(
           json["stats"]?.map(
             (x) => StatsModel.fromJson(x),
