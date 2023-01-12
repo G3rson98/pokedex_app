@@ -47,7 +47,7 @@ class PokemonCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "# ${pokemon.order}",
+                      "# ${pokemon.id}",
                       style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,

@@ -87,7 +87,7 @@ class _PokemonPageState extends State<PokemonPage>
                         ),
                         const Spacer(),
                         Text(
-                          '#${widget.pokemon.order}',
+                          '#${widget.pokemon.id}',
                           style: Style.s18.bold?.apply(color: Colors.white),
                         ),
                       ],

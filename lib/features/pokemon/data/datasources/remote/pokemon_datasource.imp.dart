@@ -1,5 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasoucer.dart';
+import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasource.dart';
 import 'package:pokemon_app/features/pokemon/data/models/pokemon_response_model.dart';
 import 'package:pokemon_app/shared/data/http.service.dart';
 

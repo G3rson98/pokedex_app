@@ -1,4 +1,4 @@
-import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasoucer.dart';
+import 'package:pokemon_app/features/pokemon/data/datasources/remote/pokemon_datasource.dart';
 import 'package:pokemon_app/features/pokemon/domain/entities/pokemon_response.entity.dart';
 import 'package:pokemon_app/features/pokemon/domain/entities/stats_response.entity.dart';
 import 'package:pokemon_app/features/pokemon/domain/repositories/pokemon_repository.dart';
@@ -19,7 +19,7 @@ class PokemonRepositoryImp implements PokemonRepository {
       urlImage: response.urlImage,
       types: response.types,
       color: ColorTypePokemon.fromJson(response.types.first),
-      order: response.order,
+      id: response.id,
       stats: List.from(
         response.stats.map(
           (e) => Stats(
@@ -46,7 +46,7 @@ class PokemonRepositoryImp implements PokemonRepository {
           urlImage: e.urlImage,
           types: e.types,
           color: ColorTypePokemon.fromJson(e.types.first),
-          order: e.order,
+          id: e.id,
           stats: List.from(
             e.stats.map(
               (e) => Stats(
